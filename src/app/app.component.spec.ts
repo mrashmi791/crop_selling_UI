@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent
       ],
     }).compileComponents();
   });
@@ -18,6 +20,10 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
+
+    const fixture2 = TestBed.createComponent(HeaderComponent);
+    const app2 = fixture2.componentInstance;
+    expect(app2).toBeTruthy();
   });
 
   it(`should have as title 'crop-mngt'`, () => {
@@ -26,10 +32,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('crop-mngt');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('crop-mngt app is running!');
-  });
 });
